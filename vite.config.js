@@ -1,30 +1,17 @@
 import { defineConfig } from "vite"
+import { resolve } from "path"
 
-export default defineConfig(({ command, mode }) => {
-    console.log(command, mode);
-
-    if (command === 'server') {
-        return {}
-    }
-
+export default defineConfig(() => {
     return {
-        // build: {
-        //     outDir: 'out'
-        // }
+        build: {
+            target: 'es2015',
+            rollupOptions: {
+                input: {
+                    main: resolve(__dirname, 'index.html'),
+                    about: resolve(__dirname, 'pages/about.html'),
+                    posts: resolve(__dirname, 'pages/posts.html')
+                }
+            }
+        }
     }
 })
-
-
-// export default defineConfig({
-//     build: {
-//         outDir: 'out'
-//     }
-// })
-
-
-// export default {
-//     build: {
-//         outDir: 'out',
-//         target: 'es2015'
-//     }
-// }
