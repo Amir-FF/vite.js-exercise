@@ -25,3 +25,8 @@ const imgUrl = new URL('/images/img.jpg', import.meta.url).href;
 
 
 document.getElementById('img').src = imgUrl;
+
+
+// /////////////////////////////////////////////////////////////////
+console.log(import.meta.env);
+console.log(import.meta.env.VITE_TEST);
